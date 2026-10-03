@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>外卖商户申诉与证据归档系统</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/vendor/vue.global.prod.js"></script>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <!-- 登录 -->
+    <div v-if="!user" class="login-wrap">
+      <div class="login-card">
+        <h1>外卖商户申诉与证据归档系统</h1>
+        <p class="muted">门店处罚申诉 · 证据归档 · 平台结论跟踪</p>
+        <form @submit.prevent="doLogin">
+          <label>账号<input v-model.trim="loginForm.username" placeholder="如 manager1" required></label>
+          <label>密码<input v-model="loginForm.password" type="password" placeholder="如 123456" required></label>
+          <button class="btn primary block" :disabled="logging">{{ logging ? '登录中…' : '登 录' }}</button>
+        </form>
+        <p v-if="loginError" class="error">{{ loginError }}</p>
+        <div class="demo-accounts">
+          <p>演示账号（密码均为 123456）：</p>
+          <p>文一店 — 店长 <code>manager1</code> / 员工 <code>staff1</code></p>
+          <p>文二店 — 店长 <code>manager2</code> / 员工 <code>staff2</code></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 主界面 -->
+    <div v-else>
+      <header class="topbar">
+        <div class="brand">申诉与证据归档</div>
+        <nav>
+          <a href="#/" :class="{on: route.name==='list'}">处罚记录</a>
+          <a href="#/notifications" :class="{on: route.name==='notifications'}">
+            消息<span v-if="unread" class="dot">{{ unread }}</span>
+          </a>
+        </nav>
+        <div class="who">
+          <span class="store">{{ user.store_name }}</span>
+          <span class="role" :class="user.role">{{ user.role === 'manager' ? '店长' : '员工' }}</span>
+          <span>{{ user.name }}</span>
+          <a href="javascript:;" @click="logout">退出</a>
+        </div>
+      </header>
+      <main class="container">
+        <penalty-list v-if="route.name==='list'"></penalty-list>
+        <penalty-detail v-else-if="route.name==='detail'" :id="route.id" :me="user"></penalty-detail>
+        <notifications-view v-else-if="route.name==='notifications'"></notifications-view>
+      </main>
+    </div>
+  </div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

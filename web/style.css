@@ -1,0 +1,127 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #f4f6f9; color: #1f2733; font-size: 14px;
+}
+[v-cloak] { display: none; }
+a { color: #2563eb; text-decoration: none; }
+h2 { margin: 8px 0 12px; }
+h3 { margin: 16px 0 8px; font-size: 15px; }
+.muted { color: #7a8699; }
+.error { color: #c0392b; }
+.good { color: #1e8e5a; }
+.bad { color: #c0392b; }
+.urgent { color: #d97706; font-weight: 600; }
+code { background: #eef1f6; padding: 1px 6px; border-radius: 4px; }
+
+/* 登录 */
+.login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.login-card {
+  background: #fff; padding: 32px 36px; border-radius: 12px; width: 380px;
+  box-shadow: 0 8px 30px rgba(31, 39, 51, .08);
+}
+.login-card h1 { font-size: 19px; margin: 0 0 4px; }
+.login-card label { display: block; margin: 14px 0 4px; color: #4a5568; }
+.login-card input {
+  width: 100%; padding: 9px 10px; border: 1px solid #d5dce6; border-radius: 8px; margin-top: 4px;
+}
+.demo-accounts { margin-top: 18px; padding: 10px 12px; background: #f7f9fc; border-radius: 8px; color: #7a8699; font-size: 12px; }
+.demo-accounts p { margin: 4px 0; }
+
+/* 顶栏 */
+.topbar {
+  display: flex; align-items: center; gap: 28px; background: #fff;
+  padding: 0 24px; height: 52px; border-bottom: 1px solid #e5eaf1; position: sticky; top: 0; z-index: 5;
+}
+.brand { font-weight: 700; }
+.topbar nav { display: flex; gap: 18px; flex: 1; }
+.topbar nav a { color: #4a5568; padding: 4px 2px; }
+.topbar nav a.on { color: #2563eb; border-bottom: 2px solid #2563eb; }
+.who { display: flex; align-items: center; gap: 10px; color: #4a5568; }
+.who .store { font-weight: 600; color: #1f2733; }
+.role { font-size: 12px; padding: 1px 8px; border-radius: 10px; background: #eef1f6; }
+.role.manager { background: #e0ecff; color: #1d4ed8; }
+.dot {
+  display: inline-block; min-width: 16px; text-align: center; background: #e11d48; color: #fff;
+  border-radius: 8px; font-size: 11px; padding: 0 4px; margin-left: 4px;
+}
+
+.container { max-width: 1080px; margin: 20px auto 60px; padding: 0 16px; }
+
+/* 卡片与表格 */
+.card { background: #fff; border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(31,39,51,.05); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 900px) { .grid2 { grid-template-columns: 1fr; } }
+.tbl { width: 100%; border-collapse: collapse; background: #fff; }
+.tbl th, .tbl td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #edf0f5; }
+.tbl th { color: #7a8699; font-weight: 500; font-size: 13px; }
+.tbl .reason { max-width: 260px; }
+tr.clickable { cursor: pointer; }
+tr.clickable:hover { background: #f7f9fc; }
+.kv { border-collapse: collapse; width: 100%; }
+.kv td { padding: 5px 8px 5px 0; }
+.kv td:first-child { color: #7a8699; width: 90px; }
+
+.tag { background: #eef1f6; border-radius: 4px; padding: 2px 8px; font-size: 12px; }
+.badge { padding: 2px 10px; border-radius: 10px; font-size: 12px; }
+.badge.warn { background: #fef3c7; color: #b45309; }
+.badge.info { background: #dbeafe; color: #1d4ed8; }
+.badge.good { background: #d1fae5; color: #047857; }
+.badge.bad { background: #fee2e2; color: #b91c1c; }
+.badge.muted { background: #eef1f6; color: #7a8699; }
+
+.banner { border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; }
+.banner.warn { background: #fffbeb; border: 1px solid #fcd34d; color: #92400e; }
+.banner.bad { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; font-weight: 600; }
+.banner.muted { background: #f4f6f9; border: 1px solid #e5eaf1; color: #4a5568; }
+
+/* 时间线 */
+.timeline { list-style: none; margin: 0; padding: 0 0 0 6px; }
+.timeline li { position: relative; padding: 0 0 14px 20px; border-left: 2px solid #dbe3ee; }
+.timeline li:last-child { border-left-color: transparent; }
+.tldot {
+  position: absolute; left: -6px; top: 4px; width: 10px; height: 10px;
+  border-radius: 50%; background: #2563eb;
+}
+
+/* 证据缺口 */
+.reqs { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
+.req { display: flex; justify-content: space-between; padding: 8px 12px; border-radius: 8px; }
+.req.ok { background: #ecfdf5; color: #047857; }
+.req.miss { background: #fef2f2; color: #b91c1c; }
+.req .muted { color: inherit; opacity: .75; font-size: 12px; }
+
+/* 表单与按钮 */
+.btn {
+  border: 1px solid #d5dce6; background: #fff; border-radius: 8px; padding: 7px 14px;
+  cursor: pointer; font-size: 13px;
+}
+.btn:hover { border-color: #2563eb; color: #2563eb; }
+.btn.primary { background: #2563eb; border-color: #2563eb; color: #fff; }
+.btn.primary:hover { background: #1d4ed8; }
+.btn.danger { border-color: #fca5a5; color: #b91c1c; }
+.btn.block { width: 100%; margin-top: 16px; padding: 10px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.uploadbar { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+.uploadbar select, .uploadbar input[type=text], .uploadbar input:not([type]), textarea {
+  border: 1px solid #d5dce6; border-radius: 8px; padding: 7px 10px;
+}
+textarea { width: 100%; margin-bottom: 8px; font-family: inherit; }
+
+/* 结论与版本 */
+.result { border-radius: 10px; padding: 12px 16px; margin: 12px 0; }
+.result.upheld { background: #fef2f2; border: 1px solid #fca5a5; }
+.result.revoked { background: #ecfdf5; border: 1px solid #6ee7b7; }
+.result.partial { background: #fffbeb; border: 1px solid #fcd34d; }
+.result h3 { margin-top: 0; }
+.versions { list-style: none; padding: 0; }
+.versions li { border-left: 3px solid #dbe3ee; padding: 6px 0 10px 14px; margin-bottom: 4px; }
+
+.platform-sim { margin-top: 14px; border-top: 1px dashed #e5eaf1; padding-top: 10px; }
+.simbox { background: #f7f9fc; border-radius: 8px; padding: 10px 14px; margin-top: 8px; }
+.simbox .btn { margin: 4px 8px 4px 0; }
+.simbox input { border: 1px solid #d5dce6; border-radius: 8px; padding: 7px 10px; margin-right: 8px; }
+
+.notifs { list-style: none; padding: 0; }
+.notifs li { background: #fff; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
+.notifs li.unread { border-left: 3px solid #2563eb; font-weight: 600; }
